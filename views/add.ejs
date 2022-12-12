@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+</head>
+<body>
+    <h1 style="text-align: center;">Add Customer</h1>
+    
+    
+    <div class="container" >
+    <div class="container-fluid" style="display:inline-block;">
+        <a href="/customer/home" class="btn btn-primary">Show All Data</a>
+        
+            <% for(var i=0; i<err.length; i++) {%>
+                
+                <div class="alert alert-danger" role="alert">
+                    <%= err[i] %>
+                </div>
+            <% } %>
+
+            
+            
+            
+        <form  method="post">
+            <div class="form-group">
+              <label for="exampleInputEmail1">Customer Code</label>
+              <input type="text" name="custcode" required class="form-control" placeholder="Enter Customer Code" id="exampleInputEmail1" aria-describedby="emailHelp" >
+              
+              <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Name</label>
+              <input type="text" name="name" required class="form-control" placeholder="Enter Name" id="exampleInputPassword1" >
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Date of Birth</label>
+                <input type="date" name="dob" required placeholder="Date of Birth"  class="form-control" onchange="age_cal()" id="dob" >
+                <small  id="result" class="form-text text-muted text-danger" style="color: red;">   
+
+                </small>
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Email</label>
+                <input type="text" name="email" required placeholder="Enter Email" class="form-control" id="exampleInputPassword1" >
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Contact Number</label>
+                <input type="text" name="contact" required placeholder="Enter Contact Number" class="form-control" id="exampleInputPassword1" >
+              </div>
+            
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+    </div>
+</div>
+    <!-- <script>
+        var start = new Date(document.getElementById('dob').value);
+
+        var y = start.getFullYear();
+        console.log(y);
+    </script> -->
+
+
+    <script>
+        function age_cal(){
+            var d = document.getElementById('dob').value;
+            console.log(d);
+            var dob = new Date(d);
+            console.log(dob);
+            //calculate month difference from current date in time
+            var month_diff = Date.now() - dob.getTime();
+            console.log(Date.now());
+            //convert the calculated difference in date format
+            var age_dt = new Date(month_diff); 
+            
+            //extract year from date    
+            var year = age_dt.getUTCFullYear();
+            
+            //now calculate the age of the user
+            var age = Math.abs(year - 1970);
+            if(age < 18)
+            {
+                document.getElementById("result").innerHTML="You must have been to 18 years old"
+            }
+            else{
+                document.getElementById("result").innerHTML="";
+            }
+            //display the calculated age
+
+             return age;
+        }
+        
+    </script>
+    
+
+
+</body>
+</html>

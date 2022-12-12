@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Oswald:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Flaticon Font -->
+    <link href="lib/flaticon/font/flaticon.css" rel="stylesheet">
+  
+    <!-- Libraries Stylesheet -->
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap4.min.css">
+
+</head>
+<body>
+    <h1 style="text-align: center;">welcome</h1>
+<div class="content-wrapper">
+    
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title" style="text-align:center ;">All Customers</h3>
+                        </div>
+
+                        <div class="container">
+                        <!-- /.card-header -->
+                        <div class="card-body">
+                            <div align="right" class="input-group rounded">
+                                <form action="/search" method="get">
+                                    <input type="text" name="search" class="form-control rounded" placeholder="Search"   />
+                                    <input type="submit" class="input-group-text border-0" >
+                                    <!-- <span  id="search-addon">
+                                        <i class="fas fa-search"></i>
+                                    </span> -->
+                                </form>
+                                
+                            </div>
+                            <p align="right">
+                                <a href="/customer/add" class="btn btn-primary">Add</a>
+                            </p>
+                                <table id="example2" border="1" class="table table-bordered table-hover">
+                                    <tr>
+                                        <th>Cust Code</th>
+                                        <th>Name</th>
+                                        <th>Date of Birth</th>
+                                        <th>Email</th>
+                                        <th>Contact</th>
+                                        <th>Action</th>
+                                    </tr>
+    
+                                    <!-- <% var i = 1 %> -->
+                                    <% data.forEach((item)=>{ %>
+                                        <tr>
+                                            <!-- <td><%= i++ %></td> -->
+                                            <td style="font-weight: bold; text-align: center;"><%= item._id %></td>
+                                            <td><%= item.name %></td>
+                                            <td><%= item.dob %></td>
+                                            <td><%= item.email %></td>
+                                            <td><%= item.contact %></td>
+                                            <td>
+                                                <a href="edit/<%= item._id %>"><i class="fas fa-edit"></i></a>
+                                                <form action="delete/<%= item._id %>" method="post" class="inline" id="myform">
+                                                    <button ><i class="fas fa-trash" style="color:red ;"></i></button>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                    <% }) %>
+    
+                                    <tfoot>
+                                        <tr>
+                                            <th>Cust Code</th>
+                                            <th>Name</th>
+                                            <th>Date of Birth</th>
+                                            <th>Email</th>
+                                            <th>Contact</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                    
+                </div>
+                <!-- /.col -->
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container-fluid -->
+    </section>
+</div>
+
+
+</body>
+</html>
